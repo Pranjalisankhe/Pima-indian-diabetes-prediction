@@ -1,0 +1,39 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="static\style.css">
+	<title>DiabetesPrediction</title>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Diabetes Prediction</h1>
+        <br>
+        <h3>please select from the below options to predict the Diabetes status </h3>
+        <br>
+    </div>
+    <div id="container" class="container">
+    	<form method="POST">{%csrf_token%}
+    			
+    		    <input type="number" name="Pregnancies" step="any"required value=""placeholder="Pregnancies" min="0"max="17"><br><br>
+    		    <input type="number" name="Glucose " step="any"value="" required placeholder="Glucose " min="0"max="199"><br><br>
+    		    <input type="number" name="Blood Pressure" step="any"value="" required placeholder="Blood Pressure" min="0"max="122"><br><br>
+                <input type="number" name="Triceps Skin " step="any"required value=""placeholder="Triceps Skin " min="0"max="99"><br><br>
+                <input type="number" name="Insulin" step="any"value="" required placeholder="Insulin" min="0"max="846"><br><br>
+                <input type="number" name="BML"  step="0.1"value="" required placeholder=" BML" min="0.0"max="67.1"><br><br>
+                <input type="number" name="pedigree" step="0.001" value="" required placeholder="pedigree" min="0.078"max="2.42"><br><br>
+                <input type="number" name=" Age" step="any"value="" required placeholder=" Age" min="21"max="81"><br><br>
+        
+    		<input type="submit" name="submit" value="submit">
+    	</form>	
+    	<br>
+    	{% if d%}
+    	{%else%}
+    	<label for="Diabetes_status">Diabetes predicted status for given inputs:</label>
+    	<input type="text" name="" value="{{ans}}" disabled>
+    	{%endif%}
+    </div>
+</body>
+</html>
